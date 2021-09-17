@@ -18,8 +18,23 @@ const baseUrl = 'https://github.com'
     text-decoration: none;
     color: black;
     cursor: pointer;
+    border-left-style: solid;
+    border-left-width: 3px;
+    border-left-color: #cccccc;
     box-shadow: 0px 0px 10px 1px #e5e5e5;
     transition: .2s linear box-shadow, .2s ease-in-out transform;
+  }
+  .card-PushEvent {
+    border-left-color: #fff000;
+  }
+  .card-DeleteEvent {
+    border-left-color: #ff0f00;
+  }
+  .card-CreateEvent {
+    border-left-color: #00f000;
+  }
+  .card-WatchEvent {
+    border-left-color: #ff00ff;
   }
   .card:hover {
     transform: translateY(-0.25rem);
@@ -38,7 +53,7 @@ const baseUrl = 'https://github.com'
   }
 </style>
 
-<a class='card' href={`${baseUrl}/${name}`} target="_blank" rel='noopener'>
+<a class={`card card-${type}`} href={`${baseUrl}/${name}`} target="_blank" rel='noopener'>
   <div class='card-body'>
     <h3 class='card-heading'>{type}</h3>
     <p>{login}</p>
