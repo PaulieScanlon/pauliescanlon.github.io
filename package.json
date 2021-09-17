@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/PaulieScanlon/pauliescanlon.github.io/issues"
   },
-  "homepage": "https://github.com/PaulieScanlon/pauliescanlon.github.io",
+  "homepage": "https://github.com/PaulieScanlon/pauliescanlon.github.io#readme",
   "dependencies": {
     "astro": "^0.20.7",
     "gh-pages": "^3.2.3"
