@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/PaulieScanlon/pauliescanlon.github.io#readme",
   "dependencies": {
-    "astro": "^0.20.7",
-    "gh-pages": "^3.2.3"
+    "astro": "^0.20.7"
   }
 }
