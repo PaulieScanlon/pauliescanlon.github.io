@@ -1,0 +1,29 @@
+{
+  "name": "pauliescanlon.github.io",
+  "version": "1.0.0",
+  "description": "Some kind of site using GitHub pages",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "gh-pages": "gh-pages -d dist",
+    "deploy": "sh ./deploy.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulieScanlon/pauliescanlon.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulieScanlon/pauliescanlon.github.io/issues"
+  },
+  "homepage": "https://github.com/PaulieScanlon/pauliescanlon.github.io",
+  "dependencies": {
+    "astro": "^0.20.7",
+    "gh-pages": "^3.2.3"
+  }
+}
