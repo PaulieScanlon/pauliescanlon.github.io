@@ -1,6 +1,7 @@
 ---
 import Intro from '../components/Intro.astro'
-import MyEvents from '../components/MyEvents.astro';
+import StaticEvents from '../components/StaticEvents.astro';
+import DynamicEvents from '../components/DynamicEvents.jsx'
 ---
 
 <html>
@@ -20,7 +21,8 @@ import MyEvents from '../components/MyEvents.astro';
   </head>
   <body>
     <Intro />
-    <MyEvents />
+    <DynamicEvents client:load />
+    <StaticEvents />
   </body>
 </html>
 
