@@ -1,14 +1,6 @@
 ---
-const response = await fetch('https://paulieapi.gatsbyjs.io/api/get-github-events', {
-  method: 'POST',
-  body: JSON.stringify({
-    username: 'PaulieScanlon',
-    results: 50,
-  }),
-})
-const data = await response.json();
-// console.log(JSON.stringify(data, null, 2))
-import EventCard from '../components/EventCard';
+import Intro from '../components/Intro.astro'
+import MyEvents from '../components/MyEvents.astro';
 ---
 
 <html>
@@ -25,49 +17,10 @@ import EventCard from '../components/EventCard';
         word-break: break-word;
       }
     </style>
-    <style lang='css'>
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 24px;
-      }
-      
-      .intro-text {
-        margin-bottom: 32px;
-      }
-
-      @media screen and (min-width: 40em) {
-        .grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-    </style>
   </head>
   <body>
-    <h1>pauliescanlon.github.io</h1>
-    <h2>Last Build: {`${new Date().toLocaleDateString()} @${new Date().toLocaleTimeString()}`}</h2>
-    <p class='intro-text'>This site is built using <a href='https://astro.build/' target="_blank" rel="noopener">Astro</a>. 
-    Builds are kicked off every few hours using a cron job defined in a GitHub action.
-    <br />
-    When the site builds it requests data from a Cross Origin Gatsby Function in my <a href='https://paulieapi.gatsbyjs.io/' target="_blank" rel="noopener">API</a>, which in turn requests the latest events from my GitHub account using the GitHub REST API and bakes them into the page below <span role='img' aria-label="Man Dancing Emoji">🕺</span>
-    
-    <br />
-    <br />
-    You can find the <b>src</b> code here:
-     <a href='https://github.com/PaulieScanlon/pauliescanlon.github.io' target="_blank" rel="noopener">pauliescanlon.github.io</a>
-    </p>
-
-
-    <div class='grid'>
-    {
-      data.events.map((event) => {
-        const {type, actor, repo} = event
-        return (
-          <EventCard type={type} login={actor.login} name={repo.name}/>
-        )
-      })
-    }
-    </div>
+    <Intro />
+    <MyEvents />
   </body>
 </html>
 

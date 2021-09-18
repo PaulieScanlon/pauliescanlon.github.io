@@ -1,0 +1,40 @@
+---
+const response = await fetch('https://paulieapi.gatsbyjs.io/api/get-github-events', {
+  method: 'POST',
+  body: JSON.stringify({
+    username: 'PaulieScanlon',
+    results: 50,
+  }),
+})
+const data = await response.json();
+// console.log(JSON.stringify(data, null, 2))
+import EventCard from './EventCard.astro';
+---
+
+<style lang='css'>
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+  }
+    
+  @media screen and (min-width: 40em) {
+    .card-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+
+<div>
+  <h2>PaulieScanlon</h2>
+  <div class='card-grid'>
+      {
+        data.events.map((event) => {
+          const {type, actor, repo} = event
+          return (
+            <EventCard type={type} login={actor.login} name={repo.name}/>
+          )
+        })
+      }
+  </div>
+</div>
