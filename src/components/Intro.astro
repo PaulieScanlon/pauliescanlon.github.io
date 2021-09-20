@@ -1,19 +1,26 @@
 
 <style lang='css'>
+ .intro-section {
+   margin-bottom: 32px;
+ }
   .intro-text {
     margin-bottom: 32px;
   }
 </style>
 
-
-<h1>pauliescanlon.github.io</h1>
-<h2>Last Build: {`${new Date().toLocaleDateString()} @${new Date().toLocaleTimeString()}`}</h2>
-<p class='intro-text'>This site is built using <a href='https://astro.build/' target="_blank" rel="noopener">Astro</a>. 
-Builds are kicked off every few hours using a cron job defined in a GitHub action.
-<br />
-When the site builds it requests data from a Cross Origin Gatsby Function in my <a href='https://paulieapi.gatsbyjs.io/' target="_blank" rel="noopener">API</a>, which in turn requests the latest events from my GitHub account using the GitHub REST API and bakes them into the page below <span role='img' aria-label="Man Dancing Emoji">🕺</span>
-
-<br />
-<br />
-You can find the <b>src</b> code here: <a href='https://github.com/PaulieScanlon/pauliescanlon.github.io' target="_blank" rel="noopener">pauliescanlon.github.io</a>
-</p>
+<div class='intro-section'>
+  <h1>pauliescanlon.github.io</h1>
+  <h2>Last Build: {`${new Date().toLocaleDateString()} @${new Date().toLocaleTimeString()}`}</h2>
+  <p class='intro-text'>This site is built using <a href='https://astro.build/' target="_blank" rel="noopener">Astro</a>. 
+  Builds are kicked off every few hours using a cron job defined in a GitHub action.</p>
+  <h3>Build Time</h3>
+  <p>
+  When the site builds it uses a server side request to fetch data from a Cross Origin Gatsby Function in my <a href='https://paulieapi.gatsbyjs.io/' target="_blank" rel="noopener">API</a>, which in turn requests the latest events from my GitHub account using the GitHub REST API and bakes them into the page below <span role='img' aria-label="Man Dancing Emoji">🕺</span>
+  </p>
+  <h3>Run Time</h3>
+  <p>
+  When the sites loads it uses a client side request to fetch data from a Cross Origin Gatsby Function in my <a href='https://paulieapi.gatsbyjs.io/' target="_blank" rel="noopener">API</a>, which in turn requests the latest events from the GatsbyJs GitHub account using the GitHub REST API and displays them in the page below <span role='img' aria-label="Man Dancing Emoji">🕺</span>
+  </p>
+  <p>You can find the <b>src</b> code here: <a href='https://github.com/PaulieScanlon/pauliescanlon.github.io' target="_blank" rel="noopener">pauliescanlon.github.io</a>
+  </p>
+</div>

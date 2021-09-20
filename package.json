@@ -24,7 +24,6 @@
   "homepage": "https://github.com/PaulieScanlon/pauliescanlon.github.io#readme",
   "dependencies": {
     "@astrojs/renderer-react": "^0.2.1",
-    "astro": "^0.20.7",
-    "isomorphic-unfetch": "^3.1.0"
+    "astro": "^0.20.7"
   }
 }

@@ -17,11 +17,24 @@ import DynamicEvents from '../components/DynamicEvents.jsx'
       p {
         word-break: break-word;
       }
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 24px;
+        margin-bottom: 48px;
+        min-height: 500px;
+      }
+        
+      @media screen and (min-width: 40em) {
+        .card-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
     </style>
   </head>
   <body>
     <Intro />
-    <DynamicEvents client:load />
+    <DynamicEvents client:load username='GatsbyJs' />
     <StaticEvents />
   </body>
 </html>
