@@ -26,10 +26,6 @@
 .IssueCommentEvent {
   border-left-color: #0f00ff;
 }
-.card:hover {
-  transform: translateY(-0.25rem);
-  box-shadow: 0px 0px 20px 5px #e5e5e5;
-}
 .cardHeading {
   margin: 0;
   font-size: 1rem;
@@ -40,4 +36,21 @@
 .cardUrl {
   font-size: 0.75rem;
   color: -webkit-link;
+}
+
+p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+ul {
+  margin-top: 0;
+}
+
+a {
+  font-size: 0.75rem;
+}
+
+a:hover {
+  color: red;
 }

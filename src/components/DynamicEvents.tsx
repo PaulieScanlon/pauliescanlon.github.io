@@ -46,13 +46,15 @@ const DynamicEvents: FunctionalComponent<Props> = ({
         ) : (
           <>
             {events.map((event, index) => {
-              const { type, actor, repo } = event;
+              const { type, actor, created_at, repo, payload } = event;
               return (
                 <EventCard
                   key={index}
                   type={type}
+                  date={created_at}
                   login={actor.login}
-                  name={repo.name}
+                  repo={repo}
+                  commits={payload.commits}
                 />
               );
             })}
