@@ -40,7 +40,7 @@ const DynamicEvents: FunctionalComponent<Props> = ({
     <div>
       <h2>DynamicEvents | @{username}</h2>
       <pre>https://paulieapi.gatsbyjs.io/api/get-github-events</pre>
-      <div className="card-grid">
+      <div>
         {isLoading ? (
           <div>Loading...</div>
         ) : (

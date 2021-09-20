@@ -15,7 +15,7 @@ import EventCard from './EventCard.tsx'
 <div>
   <h2>StaticEvents | @PaulieScanlon</h2>
   <pre>https://paulieapi.gatsbyjs.io/api/get-github-events</pre>
-  <div class='card-grid'>
+  <div>
       {
         data.events.map((event, index) => {
           const {type, actor,created_at,  repo, payload} = event

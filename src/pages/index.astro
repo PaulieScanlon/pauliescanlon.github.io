@@ -17,6 +17,8 @@ import DynamicEvents from '../components/DynamicEvents.jsx'
       p {
         word-break: break-word;
       }
+    </style>
+    <style lang='css'>
       .card-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -30,12 +32,14 @@ import DynamicEvents from '../components/DynamicEvents.jsx'
           grid-template-columns: 1fr 1fr;
         }
       }
-    </style>
+      </style>
   </head>
   <body>
     <Intro />
-    <DynamicEvents client:load username='GatsbyJs' />
-    <StaticEvents />
+    <div class='card-grid'>
+      <StaticEvents />
+      <DynamicEvents client:load username='GatsbyJs' />
+    </div>
   </body>
 </html>
 
