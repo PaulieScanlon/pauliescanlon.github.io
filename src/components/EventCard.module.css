@@ -8,6 +8,7 @@
   box-shadow: 0px 0px 10px 1px #e5e5e5;
   margin-bottom: 16px;
 }
+/* https://docs.github.com/en/developers/webhooks-and-events/events/github-event-types */
 .PushEvent {
   border-left-color: #fff000;
 }
@@ -28,6 +29,12 @@
 }
 .PullRequestReviewEvent {
   border-left-color: #ff9900;
+}
+.ForkEvent {
+  border-left-color: #f55900;
+}
+.IssuesEvent {
+  border-left-color: #ff88ee;
 }
 .cardHeading {
   margin: 0;

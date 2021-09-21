@@ -5,24 +5,28 @@ import EventCard from './EventCard';
 interface Props {
   /** The GitHub user name */
   username: string;
+  /** The GitHub repository name */
+  repo: string;
   /** The amount of results to display */
-  results: number;
+  results?: number;
 }
 
 const DynamicEvents: FunctionalComponent<Props> = ({
   username,
-  results = 6
+  repo,
+  results = 20
 }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [events, setEvents] = useState(null);
 
   const getEvents = async () => {
     const response = await fetch(
-      'https://paulieapi.gatsbyjs.io/api/get-github-events',
+      'https://paulieapi.gatsbyjs.io/api/get-github-repo-events',
       {
         method: 'POST',
         body: JSON.stringify({
-          username: username,
+          owner: username,
+          repo: repo,
           results: results
         })
       }
@@ -38,8 +42,10 @@ const DynamicEvents: FunctionalComponent<Props> = ({
 
   return (
     <div>
-      <h2>DynamicEvents | @{username}</h2>
-      <pre>https://paulieapi.gatsbyjs.io/api/get-github-events</pre>
+      <h2>
+        DynamicEvents | @{username}/{repo}
+      </h2>
+      <pre>https://paulieapi.gatsbyjs.io/api/get-github-repo-events</pre>
       <div>
         {isLoading ? (
           <div>Loading...</div>

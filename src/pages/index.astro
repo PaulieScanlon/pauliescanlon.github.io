@@ -37,8 +37,11 @@ import DynamicEvents from '../components/DynamicEvents.jsx'
   <body>
     <Intro />
     <div class='card-grid'>
-      <StaticEvents />
-      <DynamicEvents client:load username='GatsbyJs' />
+      <StaticEvents username='PaulieScanlon' />
+      <div>
+      <DynamicEvents client:load username='gatsbyjs' repo='gatsby'/>
+      <DynamicEvents client:load username='snowpackjs' repo='astro'/>
+      </div>
     </div>
   </body>
 </html>
