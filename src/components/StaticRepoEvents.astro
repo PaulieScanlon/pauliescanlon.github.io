@@ -10,31 +10,41 @@ export interface Props {
 
 const { username, repoName, results = 50 } = Astro.props;
 
-const repoResponse = await fetch(
-    'https://paulieapi.gatsbyjs.io/api/get-github-repo',
-    {
-    method: 'POST',
-    body: JSON.stringify({
-        owner: username,
-        repo: repoName
-    })
-    }
-);
+  let repoData = null
+  let eventsData = null
 
-const repoData = await repoResponse.json();
+  try {
+    const repoResponse = await fetch(
+      'https://paulieapi.gatsbyjs.io/api/get-github-repo',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          owner: username,
+          repo: repoName
+        })
+      }
+    );
 
-const eventsResponse = await fetch(
-    'https://paulieapi.gatsbyjs.io/api/get-github-repo-events',
-    {
-    method: 'POST',
-    body: JSON.stringify({
-        owner: username,
-        repo: repoName,
-        results: results
-    })
-    }
-);
-const eventsData = await eventsResponse.json();
+    repoData = await repoResponse.json();
+
+    const eventsResponse = await fetch(
+      'https://paulieapi.gatsbyjs.io/api/get-github-repo-events',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          owner: username,
+          repo: repoName,
+          results: results
+        })
+      }
+    );
+
+    eventsData = await eventsResponse.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
+
+
 import EventCard from './EventCard.tsx'
 import { TerminalIcon } from '@heroicons/react/solid';
 ---

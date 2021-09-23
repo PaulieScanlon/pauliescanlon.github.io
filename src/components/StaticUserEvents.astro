@@ -8,24 +8,37 @@ export interface Props {
 
 const { username, results = 50 } = Astro.props;
 
-const userResponse = await fetch('https://paulieapi.gatsbyjs.io/api/get-github-user', {
-  method: 'POST',
-  body: JSON.stringify({
-    username: username
-  })
-});
+  let userData = null
+  let eventsData = null
 
-const userData = await userResponse.json();
+  try {
+    const userResponse = await fetch(
+      'https://paulieapi.gatsbyjs.io/api/get-github-user',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          username: username
+        })
+      }
+    );
 
-const eventsResponse = await fetch('https://paulieapi.gatsbyjs.io/api/get-github-user-events', {
-  method: 'POST',
-  body: JSON.stringify({
-    username: username,
-    results: results,
-  })
-});
+    userData = await userResponse.json();
 
-const eventsData = await eventsResponse.json();
+    const eventsResponse = await fetch(
+      'https://paulieapi.gatsbyjs.io/api/get-github-user-events',
+      {
+        method: 'POST',
+        body: JSON.stringify({
+          username: username,
+          results: results
+        })
+      }
+    );
+
+    eventsData = await eventsResponse.json();
+  } catch (error) {
+    throw new Error(error.message);
+  }
 
 import EventCard from './EventCard.tsx'
 import { UserIcon } from '@heroicons/react/solid';
