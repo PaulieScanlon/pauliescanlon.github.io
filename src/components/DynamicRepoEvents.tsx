@@ -60,7 +60,9 @@ const DynamicRepoEvents: FunctionalComponent<Props> = ({
   }, []);
 
   return (
-    <div className={`bg-white rounded-lg shadow-lg p-6 mb-10 ${repoName}-bg`}>
+    <section
+      className={`bg-white rounded-lg shadow-lg p-6 mb-10 ${repoName}-bg`}
+    >
       {isRepoLoading ? (
         <Loading textClass="text-white" />
       ) : (
@@ -94,28 +96,30 @@ const DynamicRepoEvents: FunctionalComponent<Props> = ({
           <b>Dynaimc Repo Events</b>
         </h3>
       </div>
-      <div className="bg-secondary rounded-lg p-6 grid gap-6 overflow-auto h-96 shadow-inner">
-        {isEventsLoading ? (
-          <Loading textClass="text-black" />
-        ) : (
-          <>
-            {events.map((event, index) => {
-              const { type, actor, created_at, repo, payload } = event;
-              return (
-                <EventCard
-                  key={index}
-                  type={type}
-                  date={created_at}
-                  login={actor.login}
-                  repo={repo}
-                  commits={payload.commits}
-                />
-              );
-            })}
-          </>
-        )}
-      </div>
-    </div>
+      <article className="bg-secondary rounded-lg shadow-inner py-0.5">
+        <div className="grid gap-6 p-6 overflow-auto h-96">
+          {isEventsLoading ? (
+            <Loading textClass="text-black" />
+          ) : (
+            <>
+              {events.map((event, index) => {
+                const { type, actor, created_at, repo, payload } = event;
+                return (
+                  <EventCard
+                    key={index}
+                    type={type}
+                    date={created_at}
+                    login={actor.login}
+                    repo={repo}
+                    commits={payload.commits}
+                  />
+                );
+              })}
+            </>
+          )}
+        </div>
+      </article>
+    </section>
   );
 };
 
