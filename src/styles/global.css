@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a:hover {
+  opacity: 0.6;
+}
+
+.auto-1fr {
+  grid-template-columns: auto 1fr;
+}
+
+.bg-primary {
+  background-color: #fafbfe;
+}
+.bg-secondary {
+  background-color: #f3f4fa;
+}
+
+.gatsby-bg {
+  background-color: #663399;
+}
+.gatsby-text {
+  color: #ffffff;
+}
+
+.astro-bg {
+  background-color: #1f2937;
+}
+
+.astro-text {
+  color: #ffffff;
+}
+
+.mdx-embed-bg {
+  background-color: #f9ac00;
+}
+
+.mdx-embed-text {
+  color: #000000;
+}
+
+.PushEvent {
+  background-color: #fff000;
+}
+.DeleteEvent {
+  background-color: #ff0f00;
+}
+.CreateEvent {
+  background-color: #00f000;
+}
+.WatchEvent {
+  background-color: #ff00ff;
+}
+.PullRequestEvent {
+  background-color: #00ffff;
+}
+.IssueCommentEvent {
+  background-color: #0f00ff;
+  color: #ffffff;
+}
+.PullRequestReviewEvent {
+  background-color: #ff9900;
+}
+.ForkEvent {
+  background-color: #f55900;
+}
+.IssuesEvent {
+  background-color: #ff88ee;
+}

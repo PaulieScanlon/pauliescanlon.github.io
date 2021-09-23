@@ -1,6 +1,5 @@
 import { FunctionalComponent } from 'react';
-// @ts-ignore
-import Styles from './EventCard.module.css';
+import { ChipIcon, ChatAltIcon } from '@heroicons/react/solid';
 
 interface Props {
   /** The type event */
@@ -25,34 +24,58 @@ const EventCard: FunctionalComponent<Props> = ({
   commits
 }) => {
   return (
-    <div className={`${Styles.card} ${Styles[type]}`}>
-      <div className={Styles.cardBody}>
-        <h4 className={Styles.cardHeading}>Event: {type}</h4>
-        <small>{`${new Date(date).toLocaleDateString()} @${new Date(
-          date
-        ).toLocaleTimeString()}`}</small>
-        <p>User: @{login}</p>
-        <a
-          href={`${baseUrl}/${repo.name}`}
-          target="_blank"
-          rel="noopener"
-        >{`Repo: ${baseUrl}/${repo.name}`}</a>
-        {Array.isArray(commits) ? (
-          <>
-            <p>Commits</p>
-            <ul className={Styles.list}>
-              {commits.map((commit, index) => (
-                <li key={index}>
-                  <a
-                    href={`${baseUrl}/${repo.name}/commit/${commit.sha}`}
-                    target="_blank"
-                    rel="noopener"
-                  >{`message: ${commit.message}`}</a>
-                </li>
-              ))}
-            </ul>
-          </>
-        ) : null}
+    <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="grid gap-y-2">
+        <div>
+          <div className="grid gap-x-2 auto-1fr">
+            <ChipIcon className="h-5 w-5 text-red-400" />
+            <h4>
+              <b>Event:</b>
+              <span className={`ml-1 p-1 rounded-lg text-xs ${type}`}>
+                {type}
+              </span>
+            </h4>
+          </div>
+          <small className="text-gray-500 font-light">
+            {`${new Date(date).toLocaleDateString()} @${new Date(
+              date
+            ).toLocaleTimeString()}`}
+          </small>
+        </div>
+        <div>
+          <p>
+            <b>User:</b> @{login}
+          </p>
+          <a href={`${baseUrl}/${repo.name}`} target="_blank" rel="noopener">
+            <b>Repo:</b> {repo.name}
+          </a>
+        </div>
+        <div>
+          {Array.isArray(commits) ? (
+            <>
+              <div className="grid gap-x-2 auto-1fr">
+                <ChatAltIcon className="h-5 w-5 text-red-400" />
+                <p>
+                  <b>Commits</b>
+                </p>
+              </div>
+              <ul className="list-disc list-inside pl-3">
+                {commits.map((commit, index) => (
+                  <li key={index}>
+                    <small className="text-gray-500 font-light">
+                      <a
+                        className="break-all"
+                        href={`${baseUrl}/${repo.name}/commit/${commit.sha}`}
+                        target="_blank"
+                        rel="noopener"
+                      >{`message: ${commit.message}`}</a>
+                    </small>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
+        </div>
       </div>
     </div>
   );

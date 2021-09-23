@@ -24,6 +24,10 @@
   "homepage": "https://github.com/PaulieScanlon/pauliescanlon.github.io#readme",
   "dependencies": {
     "@astrojs/renderer-react": "^0.2.1",
+    "@heroicons/react": "^1.0.4",
     "astro": "^0.20.7"
+  },
+  "devDependencies": {
+    "tailwindcss": "^2.2.15"
   }
 }

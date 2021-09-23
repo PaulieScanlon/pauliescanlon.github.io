@@ -1,46 +1,71 @@
 ---
 import Intro from '../components/Intro.astro'
-import StaticEvents from '../components/StaticEvents.astro';
-import DynamicEvents from '../components/DynamicEvents.jsx'
+import StaticUserEvents from '../components/StaticUserEvents.astro';
+import StaticRepoEvents from '../components/StaticRepoEvents.astro';
+import DynamicRepoEvents from '../components/DynamicRepoEvents.jsx'
 ---
 
 <html>
   <head>
-    <style global lang='css'>
-      body {
-        font-family: 'system-ui';
-        padding: 16px;
-        max-width: 1140px;
-        margin: 0 auto;
-        line-height: 1.5rem;
-      }
-      p {
-        word-break: break-word;
-      }
-    </style>
-    <style lang='css'>
-      .card-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 24px;
-        margin-bottom: 48px;
-        min-height: 500px;
-      }
-        
-      @media screen and (min-width: 40em) {
-        .card-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-      </style>
+    <meta charset="UTF-8" />
+
+    <title>pauliescanlon.github.io</title>
+    <link rel="stylesheet" type="text/css" href={Astro.resolve("../styles/global.css")}>
+
+    <!-- Default / HTML  -->
+    <html lang='en-gb' />
+    <title>pauliescanlon.github.io</title>
+    <link rel="canonical" href='https://pauliescanlon.github.io'/>
+
+    <!-- Primary Meta Tags  -->
+    <meta name="title" content='pauliescanlon.github.io' />
+    <meta name="description" content='A dashboard for GitHub Events' />
+    <meta name="image" content='https://pauliescanlon.github.io/pauliescanlon.github.io-og-image.jpg' />
+    <meta name="keywords" content='Astro' />
+
+    <!-- Open Graph / Facebook   -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content='https://pauliescanlon.github.io' />
+    <meta property="og:title" content='pauliescanlon.github.io' />
+    <meta property="og:description" content='A dashboard for GitHub Events' />
+    <meta property="og:image" content='https://pauliescanlon.github.io/pauliescanlon.github.io-og-image.jpg' />
+
+    <!-- Twitter  -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content='https://pauliescanlon.github.io' />
+    <meta name="twitter:title" content='pauliescanlon.github.io' />
+    <meta name="twitter:description" content='A dashboard for GitHub Events' />
+    <meta name="twitter:image" content='https://pauliescanlon.github.io/pauliescanlon.github.io-og-image.jpg' />
+
+    <!-- favicon  -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href='/favicon-16x16.png'
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href='images/favicon-32x32.png'
+    />
   </head>
-  <body>
-    <Intro />
-    <div class='card-grid'>
-      <StaticEvents username='PaulieScanlon' />
-      <div>
-      <DynamicEvents client:load username='gatsbyjs' repo='gatsby'/>
-      <DynamicEvents client:load username='snowpackjs' repo='astro'/>
+  <body class='bg-primary'>
+    <div class='container mx-auto px-4 py-10'>
+      <div class='grid gap-y-10 grid-cols-1'>
+      <Intro />
+      <div class='grid gap-x-6 gap-y-10 grid-cols-1 xl:grid-cols-2'>
+        <div>
+          <StaticUserEvents username='PaulieScanlon' />
+          <StaticRepoEvents username='PaulieScanlon' repoName='mdx-embed' />
+        </div>
+        <div>
+          <DynamicRepoEvents client:load username='gatsbyjs' repoName='gatsby'/>
+          <DynamicRepoEvents client:load username='snowpackjs' repoName='astro'/>
+        </div>
+      </div>
       </div>
     </div>
   </body>
