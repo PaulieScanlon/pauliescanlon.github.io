@@ -93,7 +93,7 @@ const DynamicRepoEvents: FunctionalComponent<Props> = ({
       <div className="grid auto-1fr">
         <TerminalIcon className="h-5 w-5 text-white mt-0.5" />
         <h3 className={`mb-4 pl-1 ${repoName}-text`}>
-          <b>Dynaimc Repo Events</b>
+          <b>Dynamic Repo Events</b>
         </h3>
       </div>
       <article className="bg-secondary rounded-lg shadow-inner py-0.5">
