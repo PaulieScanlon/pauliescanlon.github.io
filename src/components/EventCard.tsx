@@ -46,7 +46,7 @@ const EventCard: FunctionalComponent<Props> = ({
           <p>
             <b>User:</b> @{login}
           </p>
-          <a href={`${baseUrl}/${repo.name}`} target="_blank" rel="noopener">
+          <a href={`${baseUrl}/${repo.name}`} target="_blank" rel="noreferrer">
             <b>Repo:</b> {repo.name}
           </a>
         </div>
@@ -67,7 +67,7 @@ const EventCard: FunctionalComponent<Props> = ({
                         className="break-all"
                         href={`${baseUrl}/${repo.name}/commit/${commit.sha}`}
                         target="_blank"
-                        rel="noopener"
+                        rel="noreferrer"
                       >{`message: ${commit.message}`}</a>
                     </small>
                   </li>

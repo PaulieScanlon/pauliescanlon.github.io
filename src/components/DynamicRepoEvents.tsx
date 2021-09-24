@@ -82,7 +82,7 @@ const DynamicRepoEvents: FunctionalComponent<Props> = ({
             <a
               href={repo.html_url}
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
               className={`${repoName}-text`}
             >
               {repo.html_url}
