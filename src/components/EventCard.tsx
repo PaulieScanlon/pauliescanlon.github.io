@@ -29,8 +29,8 @@ const EventCard: FunctionalComponent<Props> = ({
         <div>
           <div className="grid gap-x-2 auto-1fr">
             <ChipIcon className="h-5 w-5 text-red-400" />
-            <h4>
-              <b>Event:</b>
+            <h4 className="text-sm ml-1">
+              <span className="font-bold">Event:</span>
               <span className={`ml-1 p-1 rounded-lg text-xs ${type}`}>
                 {type}
               </span>
@@ -42,12 +42,19 @@ const EventCard: FunctionalComponent<Props> = ({
             ).toLocaleTimeString()}`}
           </small>
         </div>
-        <div>
-          <p>
-            <b>User:</b> @{login}
-          </p>
-          <a href={`${baseUrl}/${repo.name}`} target="_blank" rel="noreferrer">
-            <b>Repo:</b> {repo.name}
+        <div className="grid auto-1fr items-center gap-1">
+          <b>User:</b>
+          <p>@{login}</p>
+        </div>
+        <div className="grid auto-1fr items-center gap-1">
+          <b>Repo:</b>
+          <a
+            className="text-xs underline"
+            href={`${baseUrl}/${repo.name}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {repo.name}
           </a>
         </div>
         <div>

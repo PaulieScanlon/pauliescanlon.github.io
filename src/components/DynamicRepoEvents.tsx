@@ -24,35 +24,38 @@ const DynamicRepoEvents: FunctionalComponent<Props> = ({
   const [repo, setRepo] = useState(null);
 
   const getEvents = async () => {
-    const repoResponse = await fetch(
-      'https://paulieapi.gatsbyjs.io/api/get-github-repo',
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          owner: username,
-          repo: repoName
-        })
-      }
-    );
+    try {
+      const repoResponse = await fetch(
+        'https://paulieapi.gatsbyjs.io/api/get-github-repo',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            owner: username,
+            repo: repoName
+          })
+        }
+      );
+      const repoData = await repoResponse.json();
+      setRepo(repoData.repo);
+      setIsRepoLoading(false);
+    } catch (error) {}
 
-    const repoData = await repoResponse.json();
-    setRepo(repoData.repo);
-    setIsRepoLoading(false);
-
-    const eventsResponse = await fetch(
-      'https://paulieapi.gatsbyjs.io/api/get-github-repo-events',
-      {
-        method: 'POST',
-        body: JSON.stringify({
-          owner: username,
-          repo: repoName,
-          results: results
-        })
-      }
-    );
-    const eventsData = await eventsResponse.json();
-    setEvents(eventsData.events);
-    setIsEventsLoading(false);
+    try {
+      const eventsResponse = await fetch(
+        'https://paulieapi.gatsbyjs.io/api/get-github-repo-events',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            owner: username,
+            repo: repoName,
+            results: results
+          })
+        }
+      );
+      const eventsData = await eventsResponse.json();
+      setEvents(eventsData.events);
+      setIsEventsLoading(false);
+    } catch (error) {}
   };
 
   useEffect(() => {
