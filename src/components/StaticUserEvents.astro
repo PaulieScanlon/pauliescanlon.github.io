@@ -46,22 +46,22 @@ import { UserIcon } from '@heroicons/react/solid';
 
 
 <section class='bg-white rounded-lg shadow-lg p-6 mb-10'>
-  <div class='grid auto-1fr items-center gap-2 mb-6'>
+  <div class='grid sm:grid-cols-auto1fr items-center gap-2 mb-6'>
     <img src={userData.user.avatar_url} alt={`${userData.user.login}-profile-image`} class="w-12 h-12 sm:w-16 sm:h-16 rounded-full" />
     <div>
       <h2 class="font-bold text-1xl sm:text-2xl">@{userData.user.login}</h2>
       <p class='text-gray-500 font-light'>{userData.user.bio}</p>
-      <a href={userData.user.html_url} target="_blank" rel="noreferrer">
+      <a href={userData.user.html_url} target="_blank" rel="noreferrer" class="break-all">
         {userData.user.html_url}
       </a>
     </div>
   </div>
-  <div class='grid auto-1fr'>
+  <div class='grid grid-cols-auto1fr'>
     <UserIcon className="h-5 w-5 text-red-400" />
     <h3 class="mb-4 pl-1"><b>Static User Events</b></h3>
   </div>
   <article class='bg-secondary rounded-lg shadow-inner py-0.5'>
-    <div class='grid gap-6 p-2 sm:p-6 overflow-auto h-96'>
+    <div class='p-2 sm:p-6 overflow-y-auto overflow-x-hidden h-96'>
       {
         eventsData.events.map((event, index) => {
           const {type, actor,created_at,  repo, payload} = event

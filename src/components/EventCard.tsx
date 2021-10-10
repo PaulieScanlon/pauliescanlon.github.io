@@ -24,10 +24,10 @@ const EventCard: FunctionalComponent<Props> = ({
   commits
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
       <div className="grid gap-y-2">
         <div>
-          <div className="grid gap-x-2 auto-1fr">
+          <div className="grid gap-x-2 sm:grid-cols-auto1fr">
             <ChipIcon className="h-5 w-5 text-red-400" />
             <h4 className="text-sm ml-1">
               <span className="font-bold">Event:</span>
@@ -42,14 +42,14 @@ const EventCard: FunctionalComponent<Props> = ({
             ).toLocaleTimeString()}`}
           </small>
         </div>
-        <div className="grid auto-1fr items-center gap-1">
+        <div className="grid sm:grid-cols-auto1fr items-center gap-1">
           <b>User:</b>
           <p>@{login}</p>
         </div>
-        <div className="grid auto-1fr items-center gap-1">
+        <div className="grid sm:grid-cols-auto1fr items-center gap-1">
           <b>Repo:</b>
           <a
-            className="text-xs underline"
+            className="text-xs underline break-all"
             href={`${baseUrl}/${repo.name}`}
             target="_blank"
             rel="noreferrer"
@@ -60,7 +60,7 @@ const EventCard: FunctionalComponent<Props> = ({
         <div>
           {Array.isArray(commits) ? (
             <>
-              <div className="grid gap-x-2 auto-1fr">
+              <div className="grid gap-x-2 grid-cols-auto1fr">
                 <ChatAltIcon className="h-5 w-5 text-red-400" />
                 <p>
                   <b>Commits</b>

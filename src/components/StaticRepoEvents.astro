@@ -51,7 +51,7 @@ import { TerminalIcon } from '@heroicons/react/solid';
 
 
 <section class={`bg-white rounded-lg shadow-lg p-6 mb-10 ${repoName}-bg`}>
-  <div class="grid auto-1fr items-center gap-2 mb-6">
+  <div class="grid sm:grid-cols-auto1fr items-center gap-2 mb-6">
     <img
       src={repoData.repo.owner.avatar_url}
       alt={`${repoData.repo.owner.login}-profile-image`}
@@ -68,18 +68,18 @@ import { TerminalIcon } from '@heroicons/react/solid';
         href={repoData.repo.html_url}
         target="_blank"
         rel="noreferrer"
-        class={`${repoName}-text`}
+        class={`break-all ${repoName}-text`}
       >
           {repoData.repo.html_url}
       </a>
     </div>
   </div>
-  <div class='grid auto-1fr'>
+  <div class='grid grid-cols-auto1fr'>
     <TerminalIcon className="h-5 w-5 text-white mt-0.5" />
     <h3 class="mb-4 pl-1"><b>Static Repo Events</b></h3>
   </div>
   <article class="bg-secondary rounded-lg shadow-inner py-0.5">
-   <div class='grid gap-6 p-2 sm:p-6 overflow-auto h-96'>
+  <div class='p-2 sm:p-6 overflow-y-auto overflow-x-hidden h-96'>
       {
         eventsData.events.map((event, index) => {
           const {type, actor,created_at,  repo, payload} = event

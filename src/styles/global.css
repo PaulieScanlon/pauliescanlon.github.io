@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-a:hover {
-  opacity: 0.6;
+html,
+body {
+  min-width: 320px;
 }
 
-.auto-1fr {
-  grid-template-columns: auto 1fr;
+a:hover {
+  opacity: 0.6;
 }
 
 .bg-primary {

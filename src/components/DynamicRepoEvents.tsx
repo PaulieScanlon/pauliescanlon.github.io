@@ -69,7 +69,7 @@ const DynamicRepoEvents: FunctionalComponent<Props> = ({
       {isRepoLoading ? (
         <Loading textClass="text-white" />
       ) : (
-        <div className="grid auto-1fr items-center gap-2 mb-6">
+        <div className="grid sm:grid-cols-auto1fr items-center gap-2 mb-6">
           <img
             src={repo.owner.avatar_url}
             alt={`${repo.owner.login}-profile-image`}
@@ -86,21 +86,21 @@ const DynamicRepoEvents: FunctionalComponent<Props> = ({
               href={repo.html_url}
               target="_blank"
               rel="noreferrer"
-              className={`${repoName}-text`}
+              className={`break-all ${repoName}-text`}
             >
               {repo.html_url}
             </a>
           </div>
         </div>
       )}
-      <div className="grid auto-1fr">
+      <div className="grid grid-cols-auto1fr">
         <TerminalIcon className="h-5 w-5 text-white mt-0.5" />
         <h3 className={`mb-4 pl-1 ${repoName}-text`}>
           <b>Dynamic Repo Events</b>
         </h3>
       </div>
       <article className="bg-secondary rounded-lg shadow-inner py-0.5">
-        <div className="grid gap-6 p-6 overflow-auto h-96">
+        <div className="p-2 sm:p-6 overflow-y-auto overflow-x-hidden h-96">
           {isEventsLoading ? (
             <Loading textClass="text-black" />
           ) : (
